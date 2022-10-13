@@ -1,5 +1,26 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-export const Text: React.FC = () => {
-  return <div>Text</div>
+import { Slot } from '@radix-ui/react-slot'
+import clsx from 'clsx'
+
+export interface Props {
+  size?: 'sm' | 'md' | 'lg'
+  children: ReactNode
+  asChild?: boolean
+}
+
+export const Text: React.FC<Props> = ({ size = 'md', children, asChild }) => {
+  const Comp = asChild ? Slot : 'span'
+
+  return (
+    <Comp
+      className={clsx('text-gray-100 font-sans', {
+        'text-xs': size === 'sm',
+        'text-sm': size === 'md',
+        'text-md': size === 'lg',
+      })}
+    >
+      {children}
+    </Comp>
+  )
 }
