@@ -30,3 +30,9 @@ export default {
 export const Default: StoryObj = {
   args: {},
 }
+
+export const WithoutIcon: StoryObj<TextInputRootProps> = {
+  args: {
+    children: <TextInput.Input placeholder="Lorem inpum" />,
+  },
+}
