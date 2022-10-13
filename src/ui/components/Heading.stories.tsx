@@ -31,6 +31,18 @@ export const Large: StoryObj = {
 export const CustomComponent: StoryObj = {
   args: {
     asChild: true,
-    children: <p>Lorem ipsum</p>,
+    children: <h1>Lorem ipsum</h1>,
+  },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
   },
 }
