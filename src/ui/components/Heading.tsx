@@ -7,18 +7,23 @@ export interface Props {
   size?: 'sm' | 'md' | 'lg'
   children: ReactNode
   asChild?: boolean
+  className?: string
 }
 
-export const Heading: React.FC<Props> = ({ size = 'md', children, asChild }) => {
+export const Heading: React.FC<Props> = ({ size = 'md', children, asChild, className }) => {
   const Comp = asChild ? Slot : 'h2'
 
   return (
     <Comp
-      className={clsx('text-gray-100 font-sans font-bold', {
-        'text-lg': size === 'sm',
-        'text-xl': size === 'md',
-        'text-2xl': size === 'lg',
-      })}
+      className={clsx(
+        'text-gray-100 font-sans font-bold',
+        {
+          'text-lg': size === 'sm',
+          'text-xl': size === 'md',
+          'text-2xl': size === 'lg',
+        },
+        className
+      )}
     >
       {children}
     </Comp>
